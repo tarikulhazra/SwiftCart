@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftCart E-Commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <nav class="navbar bg-base-100 shadow-md sticky top-0 z-50 px-4 lg:px-10">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <a class="btn btn-ghost text-2xl font-bold text-primary">SwiftCart</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 font-medium">
+                <li><a href="#">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <div class="indicator cursor-pointer mr-2">
+                <span class="indicator-item badge badge-primary" id="cart-count">0</span> 
+                <button class="btn btn-circle btn-ghost">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero min-h-[60vh]" style="background-image: url(https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop);">
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+                <h1 class="mb-5 text-5xl font-bold">Best Collection For You</h1>
+                <p class="mb-5">Discover the latest trends in fashion and electronics. Shop with confidence and style.</p>
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-10 bg-white">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center px-5">
+            <div class="p-5 border rounded-lg shadow-sm">
+                <h3 class="font-bold text-xl mb-2">🚚 Fast Delivery</h3>
+                <p class="text-gray-600">We deliver your products within 24 hours.</p>
+            </div>
+            <div class="p-5 border rounded-lg shadow-sm">
+                <h3 class="font-bold text-xl mb-2">🎧 24/7 Support</h3>
+                <p class="text-gray-600">Our team is always here to help you.</p>
+            </div>
+            <div class="p-5 border rounded-lg shadow-sm">
+                <h3 class="font-bold text-xl mb-2">🔒 Secure Payment</h3>
+                <p class="text-gray-600">100% secure payment gateways.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="container mx-auto py-10 px-5">
+        <h2 class="text-3xl font-bold text-center mb-8">Our Products</h2>
+        
+        <div id="loading-spinner" class="text-center my-10 hidden">
+            <span class="loading loading-spinner loading-lg text-primary"></span>
+        </div>
+
+        <div id="category-container" class="flex flex-wrap justify-center gap-4 mb-8">
+            <button onclick="filterByCategory('all')" class="btn btn-outline btn-primary category-btn active" data-category="all">All</button>
+            </div>
+
+        <div id="product-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            </div>
+    </section>
+
+    <section class="bg-gray-100 py-10 px-5">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Trending Now</h2>
+            <div id="trending-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-neutral text-neutral-content p-10">
+        <div class="footer max-w-7xl mx-auto flex flex-col md:flex-row justify-between">
+            <nav>
+                <h6 class="footer-title">Services</h6> 
+                <a class="link link-hover">Branding</a>
+                <a class="link link-hover">Design</a>
+                <a class="link link-hover">Marketing</a>
+            </nav> 
+            <nav>
+                <h6 class="footer-title">Company</h6> 
+                <a class="link link-hover">About us</a>
+                <a class="link link-hover">Contact</a>
+                <a class="link link-hover">Jobs</a>
+            </nav> 
+            <form>
+                <h6 class="footer-title">Newsletter</h6> 
+                <fieldset class="form-control w-80">
+                    <label class="label">
+                        <span class="label-text-alt text-neutral-content">Enter your email address</span>
+                    </label> 
+                    <div class="join">
+                        <input type="text" placeholder="username@site.com" class="input input-bordered join-item text-black" /> 
+                        <button class="btn btn-primary join-item">Subscribe</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="text-center mt-10 border-t border-gray-600 pt-5">
+            <p>Copyright © 2026 - All right reserved by SwiftCart</p>
+        </div>
+    </footer>
+
+    <dialog id="product_modal" class="modal">
+        <div class="modal-box w-11/12 max-w-3xl">
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+            <div id="modal-content" class="flex flex-col md:flex-row gap-6">
+                </div>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
